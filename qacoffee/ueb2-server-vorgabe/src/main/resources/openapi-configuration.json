@@ -1,0 +1,13 @@
+{
+    "resourcePackages": [
+        "de.qaware.rookiecamp.sstdesign.ueb2.vorgabe.api"
+    ],
+    "prettyPrint" : true,
+    "openAPI": {
+        "info": {
+            "version": "1.0",
+            "title": "QAcoffee API",
+            "description": "The QAcoffee API."
+        }
+    }
+}
