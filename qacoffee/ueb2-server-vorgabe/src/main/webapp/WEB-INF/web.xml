@@ -20,13 +20,20 @@
         </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
-<!--
-    <servlet>
-        <servlet-name>Bootstrap</servlet-name>
-        <servlet-class>de.qaware.rookiecamp.sstdesign.ueb2.vorgabe.Bootstrap</servlet-class>
-        <load-on-startup>2</load-on-startup>
-    </servlet>
--->
+
+    <servlet-mapping>
+        <servlet-name>jersey</servlet-name>
+        <url-pattern>/api/*</url-pattern>
+    </servlet-mapping>
+
+
+    <!--
+        <servlet>
+            <servlet-name>Bootstrap</servlet-name>
+            <servlet-class>de.qaware.rookiecamp.sstdesign.ueb2.vorgabe.Bootstrap</servlet-class>
+            <load-on-startup>2</load-on-startup>
+        </servlet>
+    -->
     <servlet>
         <!-- use OpenApi servlet to serve spec -->
         <servlet-name>OpenApi</servlet-name>
@@ -38,12 +45,10 @@
               <param-value>com.fasterxml.jackson.jaxrs.json,io.swagger.sample.resource</param-value>
             </init-param>
         -->
-        <!--
-            <init-param>
-              <param-name>openApi.configuration.location</param-name>
-              <param-value>/openapi-configuration.json</param-value>
-            </init-param>
-        -->
+        <init-param>
+          <param-name>openApi.configuration.location</param-name>
+          <param-value>/openapi-configuration.json</param-value>
+        </init-param>
         <!-- alternatively include a file openapi-configuration.json or openapi-configuration.yaml in classpath -->
 
         <load-on-startup>2</load-on-startup>
@@ -54,15 +59,12 @@
         <url-pattern>/openapi/*</url-pattern>
     </servlet-mapping>
 
-    <servlet-mapping>
-        <servlet-name>jersey</servlet-name>
-        <url-pattern>/*</url-pattern>
-    </servlet-mapping>
-
+    <!-- Origin Filter -->
     <filter>
         <filter-name>ApiOriginFilter</filter-name>
         <filter-class>de.qaware.rookiecamp.sstdesign.ueb2.vorgabe.ApiOriginFilter</filter-class>
     </filter>
+
     <filter-mapping>
         <filter-name>ApiOriginFilter</filter-name>
         <url-pattern>/*</url-pattern>
