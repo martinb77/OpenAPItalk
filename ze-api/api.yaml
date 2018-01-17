@@ -60,3 +60,5 @@ definitions:
         type: string
     required: 
       - greeting
+    example:
+      greeting: 'Hello, world!'
