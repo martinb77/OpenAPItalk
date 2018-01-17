@@ -27,6 +27,9 @@ paths:
           description: OK
           schema:
             $ref: '#/definitions/HelloDTO'
+          examples:
+            application/json:
+              greeting: "Hello, World!"
         500:
           description: 'some error occured during service execution'
           schema:
@@ -50,6 +53,9 @@ paths:
           description: OK
           schema:
             $ref: '#/definitions/HelloDTO'
+          examples:
+            application/json:
+              greeting: "Hello, UserName!"
 
 #definition of datatypes
 definitions:
@@ -61,4 +67,4 @@ definitions:
     required: 
       - greeting
     example:
-      greeting: 'Hello, world!'
+      greeting: "Hello!"
