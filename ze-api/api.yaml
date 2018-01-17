@@ -1,0 +1,62 @@
+swagger: '2.0'
+info:
+  version: 1.0.0
+  title: Ze API
+  description: description
+  termsOfService: terms
+  contact:
+    name: Martin Binder
+    url: http://www.qaware.de
+    email: martin.binder@qaware.de
+#information about the server
+host: localhost:8002
+schemes: 
+- http
+basePath: /api
+
+#services
+paths:
+  /greeting:
+    get:
+      tags: 
+      - 'greet'
+      summary: 'the first service - greetings!'
+      description: 'just say hello!' 
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/HelloDTO'
+        500:
+          description: 'some error occured during service execution'
+          schema:
+            type: integer
+            description: error code
+
+  /greetingWithName:
+    get:
+      tags: 
+      - 'greet'
+      summary: 'Greeting with name'
+      parameters:
+        - name: 'greetingName'
+          in: query
+          type: string
+          minLength: 2
+          maxLength: 256
+          required: true
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/HelloDTO'
+
+#definition of datatypes
+definitions:
+  HelloDTO:
+    type: object
+    properties:
+      greeting:
+        type: string
+    required: 
+      - greeting
