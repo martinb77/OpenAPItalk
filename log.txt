@@ -1,0 +1,7 @@
+https://swagger.io/docs/specification/data-models/data-types/
+
+./client.sh --host http://localhost:8002 greetingGet
+./client.sh --host http://localhost:8002 greetingWithNameGet greetingName="Martin"
+
+java -jar imposter.jar --plugin com.gatehill.imposter.plugin.openapi.OpenApiPluginImpl --configDir ./config
+http://localhost:8443/_spec/
